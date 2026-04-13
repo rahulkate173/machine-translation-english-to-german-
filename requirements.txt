@@ -1,0 +1,5 @@
+streamlit
+torch
+spacy
+deep-translator
+torchtext
