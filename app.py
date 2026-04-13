@@ -61,12 +61,12 @@ st.markdown("""
 # --- LOAD NLP MODELS ---
 @st.cache_resource
 def load_nlp():
+    # Streamlit Cloud will have these installed via requirements.txt
     try:
-        en_nlp = spacy.load("en_core_web_sm")
+        return spacy.load("en_core_web_sm")
     except OSError:
-        os.system("python -m spacy download en_core_web_sm")
-        en_nlp = spacy.load("en_core_web_sm")
-    return en_nlp
+        st.error("❌ Spacy model 'en_core_web_sm' not found. Ensure it is in requirements.txt.")
+        return None
 
 en_nlp = load_nlp()
 
